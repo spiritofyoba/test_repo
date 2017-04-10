@@ -1,5 +1,5 @@
 <?php
-function getResults($sql)
+function getDBConnect($sql)
 {
 	$servername = "localhost";
 	$username = "root";

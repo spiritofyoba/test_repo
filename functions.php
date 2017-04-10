@@ -1,8 +1,11 @@
 <?php
+//
+// Show posts on page function
+//
 function ShowPosts() {
 	$sql = "SELECT * FROM posts";
 
-	$result = getResults($sql);
+	$result = getDBConnect($sql);
 
 	if ( $result->num_rows > 0) {
     while($row = $result->fetch_assoc()) { ?>
@@ -32,9 +35,44 @@ function ShowPosts() {
  	}
 }
 
-function addNewPost() {
-	$result = getResults($sql);
 
+//
+// Add new post function
+//
+function addNewPost() {
+
+	$conn = getDBConnect($sql);
+
+	if ($conn->connect_error) {
+    	die("Connection failed: " . $conn->connect_error);
+	} 
+
+	if(!isset($_POST) || empty($_POST))
+	{
+		return;
+	}
+	
+	$id = ($_POST['id']);
+	$name = ($_POST['name']);
+	$post_image = ($_POST['post_image']);
+	$date = ($_POST['date']);
+	$full_text = ($_POST['full_text']);
+	$excerpt = ($_POST['excerpt']);
+	$author = ($_POST['author']);
+
+	$sql = "INSERT INTO posts (id, date, name, post_image, full_text, excerpt, author)
+	VALUES ('".$_POST['id']."', '".$_POST['date']."', '".$_POST['name']."', '".$_POST['post_image']."', '".$_POST['full_text']."', '".$_POST['excerpt']."', '".$_POST['author']."')";
+	
+	print_r($sql);
+	
+	$result = mysql_query($sql);
 	
 
+	if ($conn->query($sql) === TRUE) {
+    	echo "New record created successfully";
+	} else {
+    	echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+
+$conn->close();
 }

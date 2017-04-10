@@ -27,6 +27,34 @@ require_once('config.php');
 					<div class="tab-content">
 					  	<div id="add_post" class="tab-pane fade in active">
 					    	<?php addNewPost() ?>
+					    	<h2>Add new post</h2>
+							<form method="POST">
+								<div class="form-group">
+									<input class="form-control" type="text" name="id" placeholder="Id" />
+							  	</div>
+							  	<div class="form-group">
+									<input class="form-control" type="date" name="date" placeholder="Date" />
+							  	</div>
+								<div class="form-group">
+									<input class="form-control" type="text" name="name" placeholder="Title" />
+							  	</div>
+							  	<div class="form-group">
+									<input class="form-control" type="text" name="post_image" placeholder="Image" />
+							  	</div>
+								<div class="form-group">
+									<textarea class="form-control" type="text" name="full_text" placeholder="Text" /></textarea>
+								</div>
+								<div class="form-group">
+									<input class="form-control" type="text" name="excerpt" placeholder="Excerpt" />
+								</div>
+								<div class="form-group">
+									<input class="form-control" type="text" name="author" placeholder="Author" />
+								</div>
+								<div class="form-group">
+
+								</div>
+								<input class="btn btn-primary" type="submit" value="Add">
+							</form>
 					  	</div>
 					  	<div id="menu1" class="tab-pane fade">
 					    	<h3>Menu 1</h3>
