@@ -46,7 +46,7 @@ function addNewPost() {
 	if ($conn->connect_error) {
     	die("Connection failed: " . $conn->connect_error);
 	} 
-	
+
 	if(!isset($_POST) || empty($_POST))
 	{
 		return;
@@ -71,9 +71,9 @@ function addNewPost() {
 	
 	
 	if ($conn->query($form_sql) === TRUE) {
-    	echo "New record created successfully";
+    	echo '<div class="alert alert-success">New record created successfully</div>';
 	} else {
-    	echo "Error: " . $form_sql . "<br>" . $conn->error;
+    	echo '<div class="alert alert-danger">Error: ' . $form_sql . ' ' . $conn->error . '</div>';
 	}
 
 $conn->close();
