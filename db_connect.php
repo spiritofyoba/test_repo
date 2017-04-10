@@ -14,6 +14,6 @@ function getDBConnect($sql)
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	return $conn->query($sql);
+	return $conn;
 }
 ?> 

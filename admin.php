@@ -29,9 +29,6 @@ require_once('config.php');
 					    	<?php addNewPost() ?>
 					    	<h2>Add new post</h2>
 							<form method="POST">
-								<div class="form-group">
-									<input class="form-control" type="text" name="id" placeholder="Id" />
-							  	</div>
 							  	<div class="form-group">
 									<input class="form-control" type="date" name="date" placeholder="Date" />
 							  	</div>
